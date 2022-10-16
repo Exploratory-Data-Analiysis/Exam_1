@@ -11,20 +11,20 @@ Se tiene una base de datos que contiene información sobre 116.143 eventos de er
 - peak: Hora a la que se presenta el máximo.
 - end: Hora de finalización
 - duration.s: Duración de la erupción.
-- peak.c/s: Número de picos por segundo	
-- total.counts:Número total de picos
-- energy.kev: Energía de la fulguración
-- x.pos.asec:
-- y.pos.asec:
-- radial:
-- active.region.ar:
-- flag.1:
-- flag.2:	
-- flag.3:	
-- flag.4:	
-- flag.5:
+- peak.c/s: Recuento de picos por segundo	
+- total.counts: Recuento total de picos 
+- energy.kev: Energía producida por la fulguración (KeV)
+- x.pos.asec: La posición X por segundo de arco
+- y.pos.asec: La posición Y por segundo de arco
+- radial: Unidad em segundo de arco
+- active.region.ar: Región activa del Sol 
+- flag.1: Código de bandera de la fulguración 1
+- flag.2: Código de bandera de la fulguración 2	
+- flag.3: Código de bandera de la fulguración 3	
+- flag.4: Código de bandera de la fulguración 4	
+- flag.5: Código de bandera de la fulguración 5
 
-El objetivo de realizar un análisis exploratorio de datos sobre una base de datos de este tipo es observar si las fulguraciones obedecen algún comportamiento estadístico partícular, además de predecir comportamientos específicos como los picos de emisión, entre otros.
+El objetivo de realizar un análisis exploratorio de datos sobre una base de datos de este tipo es observar si las fulguraciones obedecen algún comportamiento estadístico partícular, además de predecir comportamientos específicos como los picos de emisión o las regiones de mayor de actividad de las fulguraciones. 
 
 
 
