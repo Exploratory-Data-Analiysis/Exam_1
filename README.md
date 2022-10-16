@@ -11,9 +11,9 @@ Se tiene una base de datos que contiene información sobre 116.143 eventos de er
 - peak: Hora a la que se presenta el máximo.
 - end: Hora de finalización
 - duration.s: Duración de la erupción.
-- peak.c/s:	
-- total.counts:
-- energy.kev:
+- peak.c/s: Número de picos por segundo	
+- total.counts:Número total de picos
+- energy.kev: Energía de la fulguración
 - x.pos.asec:
 - y.pos.asec:
 - radial:
