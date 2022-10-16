@@ -9,3 +9,5 @@ Created on Fri Oct 14 17:58:43 2022
 import pandas as pd
 
 df=pd.read_csv("/home/equipo/Documents/Academic Files/Uniquindio/Semestre 7/Física Computacional/2002to2018.csv")
+df=df.set_index(["start.date"])
+print(df)
