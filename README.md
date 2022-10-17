@@ -24,6 +24,32 @@ Se tiene una base de datos que contiene información sobre 116.143 eventos de er
 - flag.4: Código de bandera de la fulguración 4	
 - flag.5: Código de bandera de la fulguración 5
 
+    a0 - In attenuator state 0 (None) sometime during flare
+    a1 - In attenuator state 1 (Thin) sometime during flare
+    a2 - In attenuator state 2 (Thick) sometime during flare
+    a3 - In attenuator state 3 (Both) sometime during flare
+    An - Attenuator state (0=None, 1=Thin, 2=Thick, 3=Both) at peak of flare
+    DF - Front segment counts were decimated sometime during flare
+    DR - Rear segment counts were decimated sometime during flare
+    ED - Spacecraft eclipse (night) sometime during flare
+    EE - Flare ended in spacecraft eclipse (night)
+    ES - Flare started in spacecraft eclipse (night)
+    FE - Flare ongoing at end of file
+    FR - In Fast Rate Mode
+    FS - Flare ongoing at start of file
+    GD - Data gap during flare
+    GE - Flare ended in data gap
+    GS - Flare started in data gap
+    MR - Spacecraft in high-latitude zone during flare
+    NS - Non-solar event
+    PE - Particle event: Particles are present
+    PS - Possible Solar Flare; in front detectors, but no position
+    Pn - Position Quality: P0 = Position is NOT valid, P1 = Position is valid
+    Qn - Data Quality: Q0 = Highest Quality, Q11 = Lowest Quality
+    SD - Spacecraft was in SAA sometime during flare
+    SE - Flare ended when spacecraft was in SAA
+    SS - Flare started when spacecraft was in SAA
+
 El objetivo de realizar un análisis exploratorio de datos sobre una base de datos de este tipo es observar si las fulguraciones obedecen algún comportamiento estadístico partícular, además de predecir comportamientos específicos como los picos de emisión o las regiones de mayor de actividad de las fulguraciones. 
 
 
