@@ -29,16 +29,26 @@ df['Datetime0'] = pd.to_datetime(df['start.date'] + df['start.time'].astype("str
 df = df.set_index(['Datetime0'])
 del df['start.date']
 del df['start.time']
-PROM=[]
+
+Eprom=[]
 for i in df["energy.kev"]:
     r=re.findall(r"[\d\.\d]+", i)
     prom=(float(r[0])+float(r[1]))/2
-    PROM.append(prom)
-df=df.set_index(["duration.s"])
-df["Eprom"]=PROM
-df2=pd.DataFrame(df,columns=["Eprom"])
-plt.figure(figsize=(12,7),dpi=150)
-plt.grid()
-#df["Eprom"].plot()
+    Eprom.append(prom)
+    
+#df1=df.set_index(["Datetime0"])
+df["Eprom"]=Eprom
+#df1=pd.DataFrame(df,columns=["Eprom"])
+# =============================================================================
+# plt.figure(figsize=(12,7),dpi=150)
+# plt.grid()
+# df1["Eprom"].plot()
+# =============================================================================
 #df["duration.s"].plot()
-plt.scatter(df2.index,df2["Eprom"])
+#plt.scatter(df2.index,df2["Eprom"])
+
+PS = df['flag.2'] == "P1"
+dfPS = df[PS]
+print(dfPS.head(20))
+plt.figure(figsize=(12,7),dpi=150)
+plt.scatter(dfPS.index,dfPS["Eprom"])
