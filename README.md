@@ -39,7 +39,7 @@ Se tiene una base de datos que contiene información sobre 116.143 eventos de er
 - Quality Codes: Qn, where n is the total number of data gap, SAA, particle, eclipse or decimation flags set for event.
 - n ranges from 0 to 11.  Use care when analyzing the data when the quality is not zero.
 
-##Flare Flag Codes:
+## Flare flag codes:
 
 - **a0:** In attenuator state 0 (None) sometime during flare
 - **a1:** In attenuator state 1 (Thin) sometime during flare
