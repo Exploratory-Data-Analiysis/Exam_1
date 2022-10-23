@@ -69,3 +69,4 @@ El objetivo de realizar un análisis exploratorio de datos sobre una base de dat
 https://hesperia.gsfc.nasa.gov/rhessi3/
 https://www.eoportal.org/satellite-missions/rhessi#mission-status
 https://www.kaggle.com/datasets/khsamaha/solar-flares-rhessi
+https://github.com/Byte7/Solar-Flares-Prediction-RHESSI-Mission/blob/master/RHESSI_Solar_Flare_Prediction.ipynb
