@@ -80,7 +80,7 @@ P15=Filtro(df,"flag.5","P1")
 P1= pd.concat([P12,P13,P15])
 
 #plt.scatter(df["Emax"],df["peak.c/s"])
-sns.kdeplot(P1,x="duration.s",y="Emax")
+#sns.kdeplot(df,x="duration.s",y="Emax")
 #plt.scatter(dfQ1.index,dfQ1["Emin"],s=0.1,c="b")
 plt.xlabel("Duración [s]")
 plt.ylabel("Energía máxima [KeV]")
@@ -88,6 +88,7 @@ plt.ylabel("Energía máxima [KeV]")
 plt.figure(figsize=(12,7),dpi=150)
 plt.xlim(-1100,1100)
 plt.ylim(-1100,1100)
+plt.grid(True)
 plt.scatter(dfQ1["x.pos.asec"],dfQ1["y.pos.asec"],s=0.1)
 
 # =============================================================================
