@@ -41,7 +41,49 @@ df["Flags"]=df["flag.1"]+" "+df["flag.2"]+" "+df["flag.3"]+" "+df["flag.4"]\
 +" "+df["flag.5"] 
 for i in range (1,6): del df["flag."+str(i)]
 
+## Nuevas columnas Emin, Emax y Eprom:
+Emax=[]
+Emin=[]
+Eprom=[]
+for i in df["energy.kev"]:
+    r=re.findall(r"[\d\.\d]+", i)
+    prom=(float(r[0])+float(r[1]))/2
+    Emin.append(float(r[0]))
+    Emax.append(float(r[1]))
+    Eprom.append(prom)
+df["Emin"]=Emin
+df["Emax"]=Emax
+df["Eprom"]=Eprom
+
+# Explorando la base de datos
+
+## Recuento de los eventos parar diferentes rangos de energía
+sns.countplot(y="energy.kev", data=df, hue='energy.kev')
+plt.legend(title='Rango de energía [KeV]', loc='right', prop={'size': 8})
+plt.xlabel('Frecuencia', fontsize=16)
+plt.ylabel('Rango de energía (KeV)', fontsize=16)
+plt.savefig("G1.png",dpi=300)
+
+## Filtro para rangos de energías con mayor frecuencia
+dfE3_6=Filtro(df,"energy.kev","3-6")
+dfE6_12=Filtro(df,"energy.kev","6-12")
+dfE12_25=Filtro(df,"energy.kev","12-25")
+dfE25_50=Filtro(df,"energy.kev","25-50")
+dfE50_100=Filtro(df,"energy.kev","50-100")
+dfE100_300=Filtro(df,"energy.kev","100-300")
+
+sns.jointplot(data=df.sort_values('Eprom'), x="x.pos.asec", y="y.pos.asec",\
+              hue="energy.kev",xlim=(-1500,1500),ylim=(-1500,1500),height=12)
+plt.savefig("G2.png",dpi=300)
 # =============================================================================
+# sns.pairplot(data=dfE6_12, hue='energy.kev',\
+#              vars=['duration.s', 'peak.c/s', 'total.counts'])
+# sns.pairplot(data=dfE12_25, hue='energy.kev',\
+#              vars=['duration.s', 'peak.c/s', 'total.counts'])
+
+
+
+
 # for i in df["Flags"]:
 #     r=re.findall(r"[\d\.\d]+", i)
 #     prom=(float(r[0])+float(r[1]))/2
@@ -50,21 +92,7 @@ for i in range (1,6): del df["flag."+str(i)]
 #     Eprom.append(prom)
 # =============================================================================
 
-# =============================================================================
-# Emax=[]
-# Emin=[]
-# Eprom=[]
-# for i in df["Energy"]:
-#      r=re.findall(r"[\d\.\d]+", i)
-#      prom=(float(r[0])+float(r[1]))/2
-#      Emin.append(float(r[0]))
-#      Emax.append(float(r[1]))
-#      Eprom.append(prom)
-# df["Emin"]=Emin
-# df["Emax"]=Emax
-# df["Eprom"]=Eprom
-# del df["Energy"]
-# =============================================================================
+
 
 
 
