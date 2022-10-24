@@ -18,6 +18,7 @@ import pandas as pd
 import re 
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
 df=pd.read_csv("/home/equipo/Documents/Academic Files/Uniquindio/Semestre 7/Física Computacional/2002to2018.csv")
 
@@ -72,30 +73,30 @@ dfE25_50=Filtro(df,"energy.kev","25-50")
 dfE50_100=Filtro(df,"energy.kev","50-100")
 dfE100_300=Filtro(df,"energy.kev","100-300")
 
+## Scatter e histograma para las posiciones x,y para diferentes rangos de energía
+plt.style.use('dark_background')
 sns.jointplot(data=df.sort_values('Eprom'), x="x.pos.asec", y="y.pos.asec",\
               hue="energy.kev",xlim=(-1500,1500),ylim=(-1500,1500),height=12)
 plt.savefig("G2.png",dpi=300)
+
+sns.set_theme(style="ticks")
+g = sns.jointplot(data=df,x="duration.s", y="total.counts",\
+                  hue="energy.kev", kind="kde")
+
+# =============================================================================
+# df['duration.s.log'] = np.log(df['duration.s'])
+# sns.distplot(df['duration.s.log'], bins=80, kde_kws=dict(color='green', lw=3, shade=True),
+#              hist_kws=dict(alpha=1, color= 'gold',edgecolor='red', lw=3))
+# plt.xlabel('log(Duración) [s]', fontsize=16)
+# plt.ylabel('Rango de energía [KeV]', fontsize=16)
+# =============================================================================
+
 # =============================================================================
 # sns.pairplot(data=dfE6_12, hue='energy.kev',\
 #              vars=['duration.s', 'peak.c/s', 'total.counts'])
 # sns.pairplot(data=dfE12_25, hue='energy.kev',\
 #              vars=['duration.s', 'peak.c/s', 'total.counts'])
-
-
-
-
-# for i in df["Flags"]:
-#     r=re.findall(r"[\d\.\d]+", i)
-#     prom=(float(r[0])+float(r[1]))/2
-#     Emin.append(float(r[0]))
-#     Emax.append(float(r[1]))
-#     Eprom.append(prom)
 # =============================================================================
-
-
-
-
-
 
 
 # Se hace un filtro para los eventos que tienen un factor de calidad máximo Q1
@@ -105,20 +106,12 @@ plt.savefig("G2.png",dpi=300)
 # Q15=df["flag.5"] == "Q1"
 # dfQ1= pd.concat([df[Q13],df[Q14],df[Q15]])
 # dfQ1= dfQ1.sort_values("Datetime0")
-# =============================================================================
 
-# =============================================================================
 # F1 = pd.DataFrame(dfQ1['flag.1'].value_counts(), columns=['flag.1'])
 # F2 = pd.DataFrame(dfQ1['flag.2'].value_counts(), columns=['flag.2'])
 # F3 = pd.DataFrame(dfQ1['flag.3'].value_counts(), columns=['flag.3'])
 # F4 = pd.DataFrame(dfQ1['flag.4'].value_counts(), columns=['flag.4'])
-# F5 = pd.DataFrame(dfQ1['flag.5'].value_counts(), columns=['flag.5'])
-# =============================================================================
-
-
-
-
-# =============================================================================
+# F5 = pd.DataFrame(dfQ1['flag.5'].value_counts(), columns=['flag.5']) 
 # plt.figure(figsize=(12,7),dpi=150)
 # F1.plot(kind="bar")
 # F2.plot(kind="bar")
@@ -127,14 +120,6 @@ plt.savefig("G2.png",dpi=300)
 # F5.plot(kind="bar")
 # =============================================================================
 
-
-# =============================================================================
-# 
-# P12=Filtro(df,"flag.2","P1")
-# P13=Filtro(df,"flag.3","P1")
-# P15=Filtro(df,"flag.5","P1")
-# P1= pd.concat([P12,P13,P15])
-# =============================================================================
 
 
 
