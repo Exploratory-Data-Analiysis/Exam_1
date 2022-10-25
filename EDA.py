@@ -62,44 +62,54 @@ df["Eprom"]=Eprom
 ## Recuento de los eventos parar diferentes rangos de energía
 sns.countplot(x="energy.kev", data=df.sort_values('Eprom'), hue='energy.kev')
 plt.legend(title='Rango de energía [KeV]', loc='right', prop={'size': 8})
-plt.xlabel('Rango de energía (KeV)', fontsize=16)
+plt.xlabel('Rango de energía [KeV]', fontsize=16)
 plt.ylabel('Frecuencia', fontsize=16)
 plt.savefig("G1.png",dpi=300)
 
 ## Boxplot de las posiciones x,y
 plt.figure(figsize=(4,4), dpi = 150)
 sns.boxplot(data=df.sort_values('Eprom'), x='energy.kev', y="x.pos.asec")
+plt.ylabel('x [asec]', fontsize=16)
+plt.xlabel('Rango de energía [KeV]', fontsize=16)
 plt.savefig("G2.png",dpi=300)
 plt.figure(figsize=(4,4), dpi = 150)
 sns.boxplot(data=df.sort_values('Eprom'), x='energy.kev', y="y.pos.asec")
+plt.ylabel('y [asec]', fontsize=16)
+plt.xlabel('Rango de energía [KeV]', fontsize=16)
 plt.savefig("G3.png",dpi=300)
 
 ## Scatter e histograma para las posiciones x,y para diferentes rangos de energía
 sns.jointplot(data=df.sort_values('Eprom'), x="x.pos.asec", y="y.pos.asec",\
               hue="energy.kev",xlim=(-1500,1500),ylim=(-1500,1500),height=12)
+plt.ylabel('y [asec]', fontsize=16)
+plt.xlabel('x [asec]', fontsize=16)
 plt.savefig("G4.png",dpi=300)
 
 ## Boxplot de la duración de las llamaradas
 plt.figure(figsize=(4,4), dpi = 150)
 sns.boxplot(data=df.sort_values('Eprom'), x='energy.kev', y="duration.s")
-plt.savefig("G5 .png",dpi=300)
+plt.ylabel('Duración [s]', fontsize=16)
+plt.xlabel('Rango de energía [KeV]', fontsize=16)
+plt.savefig("G5.png",dpi=300)
 
 ## Distribución de la duración para diferentes rangos de energías
 plt.figure(figsize=(5,5), dpi = 150)
 sns.kdeplot(data=df.sort_values('Eprom'), x='duration.s', hue='energy.kev')
 plt.xlabel('Duración [s]')
-plt.ylabel('Densidad de energía')
+plt.ylabel('Densidad de energía [KeV]')
 plt.savefig("G6.png",dpi=300)
 
 ## Boxplot y distribución de de log(duration.s) para diferentes rangos de energía
 df["duration.sl"]=np.log(df["duration.s"])
 plt.figure(figsize=(4,4), dpi = 150)
 sns.boxplot(data=df.sort_values('Eprom'), x='energy.kev', y="duration.sl")
+plt.ylabel('log(Duración) [asec]', fontsize=16)
+plt.xlabel('Rango de energía [KeV]', fontsize=16)
 plt.savefig("G7.png",dpi=300)
 plt.figure(figsize=(5,5), dpi = 150)
 sns.kdeplot(data=df.sort_values('Eprom'), x='duration.sl', hue='energy.kev')
 plt.xlabel('log(Duración) [s]')
-plt.ylabel('Densidad de energía')
+plt.ylabel('Densidad de energía [KeV]')
 plt.savefig("G8.png",dpi=300)
 
 ## Filtro para rangos de energías con mayor frecuencia
