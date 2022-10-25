@@ -20,6 +20,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
+
 df=pd.read_csv("/home/equipo/Documents/Academic Files/Uniquindio/Semestre 7/Física Computacional/2002to2018.csv")
 
 # Limpieza de la base de datos
@@ -74,7 +75,6 @@ sns.boxplot(data=df.sort_values('Eprom'), x='energy.kev', y="y.pos.asec")
 plt.savefig("G3.png",dpi=300)
 
 ## Scatter e histograma para las posiciones x,y para diferentes rangos de energía
-plt.style.use('dark_background')
 sns.jointplot(data=df.sort_values('Eprom'), x="x.pos.asec", y="y.pos.asec",\
               hue="energy.kev",xlim=(-1500,1500),ylim=(-1500,1500),height=12)
 plt.savefig("G4.png",dpi=300)
@@ -82,7 +82,7 @@ plt.savefig("G4.png",dpi=300)
 ## Boxplot de la duración de las llamaradas
 plt.figure(figsize=(4,4), dpi = 150)
 sns.boxplot(data=df.sort_values('Eprom'), x='energy.kev', y="duration.s")
-plt.savefig("G5.png",dpi=300)
+plt.savefig("G5 .png",dpi=300)
 
 ## Distribución de la duración para diferentes rangos de energías
 plt.figure(figsize=(5,5), dpi = 150)
@@ -101,7 +101,6 @@ sns.kdeplot(data=df.sort_values('Eprom'), x='duration.sl', hue='energy.kev')
 plt.xlabel('log(Duración) [s]')
 plt.ylabel('Densidad de energía')
 plt.savefig("G8.png",dpi=300)
-
 
 ## Filtro para rangos de energías con mayor frecuencia
 dfE3_6=Filtro(df,"energy.kev","3-6")
