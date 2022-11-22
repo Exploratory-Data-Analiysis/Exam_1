@@ -27,18 +27,6 @@ Se tiene una base de datos que contiene información sobre 116.143 eventos de er
 - **flag.4:** Código de bandera de la fulguración 4	
 - **flag.5:** Código de bandera de la fulguración 5
 
-## Importante:
- 
-- Note that only events with non-zero position and energy range not equal to 3-6 keV are confirmed as solar sources.
-- Events which have no position and show up mostly in the front detectors, but were not able to be imaged are flagged as "PS".
-- Events which do not have valid position are only confirmed to be non-solar if the NS flag is set.
-- Peak Rate:  peak counts/second in energy range 6-12 keV, averaged over active collimators, including background.
-- Total Counts:  counts in energy range 6-12 keV integrated over duration of flare summed over all subcollimators, including background.
-- Energy:  the highest energy band in which the flare was observed.
-- Radial Distance:  distance from Sun center
-- Quality Codes: Qn, where n is the total number of data gap, SAA, particle, eclipse or decimation flags set for event.
-- n ranges from 0 to 11.  Use care when analyzing the data when the quality is not zero.
-
 ## Flare flag codes:
 
 - **a0:** In attenuator state 0 (None) sometime during flare
